@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Error</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fb;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .error-container {
+            text-align: center;
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 30px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .error-container h1 {
+            font-size: 50px;
+            color: #e74c3c;
+            margin-bottom: 20px;
+        }
+
+        .error-container p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .error-container a {
+            text-decoration: none;
+            color: #8e44ad;
+            font-weight: 600;
+        }
+
+        .error-container a:hover {
+            text-decoration: underline;
+        }
+
+        .error-container button {
+            background-color: #8e44ad;
+            color: #fff;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .error-container button:hover {
+            background-color: #9b59b6;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="error-container">
+    <h1>Oops! Something Went Wrong.</h1>
+    <p>It seems there is an issue with our server. Don't worry – your payment details are safe. We're working to resolve the problem as quickly as possible.</p>
+    <p>If you need further assistance, please <a href="mailto:support@yourdomain.com">contact support</a>.</p>
+    <button onclick="window.location.href='error.html'">Go to Error Page</button>
+</div>
+
+</body>
+</html>

